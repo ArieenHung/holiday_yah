@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>5/1 宜蘭住宿候選｜兩人｜接北橫司馬庫斯</title>
+  <style>
+    :root {
+      --bg: #F7F3EC;
+      --card: #FFFFFF;
+      --ink: #203040;
+      --muted: #6E7A86;
+      --line: #E6DED2;
+      --accent: #2F6F73;
+      --accent2: #C46A37;
+      --soft: #EAF2F1;
+      --warning: #FFF2DC;
+      --danger: #FFE9E3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #fff 0, var(--bg) 42%, #EFE6D8 100%);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      line-height: 1.55;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 18px 50px rgba(74, 59, 36, .08);
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 5vw, 46px);
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+    }
+    .subtitle {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 650;
+    }
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 22px 0;
+    }
+    .decision {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 8px 26px rgba(74, 59, 36, .06);
+    }
+    .decision strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    .decision p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 22px;
+      position: sticky;
+      top: 8px;
+      z-index: 5;
+    }
+    .filter-btn {
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.9);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: 0 14px 42px rgba(74, 59, 36, .08);
+    }
+    .cover {
+      min-height: 178px;
+      padding: 18px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(32,48,64,.18), rgba(32,48,64,.62)),
+        radial-gradient(circle at 20% 20%, #B9DDE2 0 18%, transparent 19%),
+        linear-gradient(135deg, #5F9EA0, #2F6F73 48%, #22394A);
+    }
+    .card[data-id="leschamps"] .cover,
+    .card[data-id="spring"] .cover {
+      background:
+        linear-gradient(135deg, rgba(32,48,64,.08), rgba(32,48,64,.64)),
+        radial-gradient(circle at 80% 25%, #F8D6B1 0 16%, transparent 17%),
+        linear-gradient(135deg, #B68D68, #4E6B73 48%, #24394B);
+    }
+    .card[data-id="sofun"] .cover {
+      background:
+        linear-gradient(135deg, rgba(32,48,64,.08), rgba(32,48,64,.66)),
+        radial-gradient(circle at 75% 20%, #D6E3C6 0 16%, transparent 17%),
+        linear-gradient(135deg, #8CA879, #5B716B 48%, #263B4A);
+    }
+    .cover .photo-label {
+      font-weight: 800;
+      font-size: 18px;
+      text-shadow: 0 2px 10px rgba(0,0,0,.22);
+    }
+    .cover .tag {
+      background: rgba(255,255,255,.88);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .content {
+      padding: 18px 18px 20px;
+    }
+    .title-row {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    h2 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+    }
+    .area {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .price {
+      flex: 0 0 auto;
+      min-width: 116px;
+      text-align: right;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--accent2);
+      line-height: 1.15;
+    }
+    .price small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .scores {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .score {
+      background: #F8FAFA;
+      border: 1px solid #E4EDED;
+      border-radius: 14px;
+      padding: 9px;
+    }
+    .score span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+    .score b {
+      font-size: 16px;
+    }
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .list-title {
+      font-weight: 850;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    li { margin: 3px 0; }
+    .verdict {
+      margin: 16px 0;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: var(--warning);
+      color: #6A4824;
+      font-weight: 750;
+      font-size: 14px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 800;
+      font-size: 14px;
+      background: var(--accent);
+      color: white;
+    }
+    a.btn.secondary {
+      background: #EEF2F2;
+      color: var(--ink);
+    }
+    .note {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.7);
+      border-radius: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .share-box {
+      margin-top: 18px;
+      background: #fff;
+      border: 1px dashed #D8C9B8;
+      border-radius: 20px;
+      padding: 16px;
+    }
+    .share-box h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+    .share-text {
+      background: #FBF8F3;
+      border-radius: 14px;
+      padding: 12px;
+      white-space: pre-wrap;
+      font-size: 13px;
+      color: #3F4A52;
+    }
+    @media (max-width: 820px) {
+      .decision-grid, .cards { grid-template-columns: 1fr; }
+      .title-row { display: block; }
+      .price { text-align: left; margin-top: 12px; }
+      .cols { grid-template-columns: 1fr; }
+      .filters { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>5/1 宜蘭住宿候選</h1>
+      <p class="subtitle">兩人入住、5/2 退房後走北橫前往司馬庫斯。這頁把重複平台去重，讓朋友快速比較「海景放鬆」與「隔天路線方便」兩種取向。</p>
+      <div class="meta">
+        <span class="pill">入住：2026/5/1</span>
+        <span class="pill">退房：2026/5/2</span>
+        <span class="pill">人數：2 位成人</span>
+        <span class="pill">下一站：北橫 → 司馬庫斯</span>
+      </div>
+    </header>
+
+    <section class="decision-grid">
+      <div class="decision">
+        <strong>海景放鬆首選</strong>
+        <p>品雲岫 Chance Villa 261。最符合看海、民宿感、放空，但隔天接北橫比礁溪多一點路。</p>
+      </div>
+      <div class="decision">
+        <strong>行程效率首選</strong>
+        <p>礁溪的麗翔或春水笈。不是海景，但隔天接宜蘭／員山／台 7 北橫更順。</p>
+      </div>
+      <div class="decision">
+        <strong>不優先</strong>
+        <p>松風文旅在五結，對隔天走北橫較繞，也不是海景；除非價格或房況明顯最好。</p>
+      </div>
+    </section>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="sea">只看海景／放鬆</button>
+      <button class="filter-btn" data-filter="route">只看接北橫方便</button>
+      <button class="filter-btn" data-filter="backup">備案</button>
+    </div>
+
+    <main class="cards" id="cards">
+
+      <article class="card" data-category="sea" data-id="chance">
+        <div class="cover">
+          <div class="photo-label">山海民宿・看海放鬆</div>
+          <div class="tag">海景首選</div>
+        </div>
+        <div class="content">
+          <div class="title-row">
+            <div>
+              <h2>品雲岫頭城民宿 / Chance Villa 261</h2>
+              <div class="area">頭城・更新路／海景民宿</div>
+            </div>
+            <div class="price">TWD 4,830<small>Booking 連結參數顯示總價；Agoda 需進頁確認</small></div>
+          </div>
+
+          <div class="scores">
+            <div class="score"><span>海景感</span><b>高</b></div>
+            <div class="score"><span>接北橫</span><b>中</b></div>
+            <div class="score"><span>放鬆感</span><b>高</b></div>
+          </div>
+
+          <div class="cols">
+            <div>
+              <div class="list-title">優點</div>
+              <ul>
+                <li>最符合「海景、放鬆、民宿感」</li><li>官方資訊顯示位於頭城更新路，主打親山看海</li><li>同一住宿有 Booking 與 Agoda，可比價</li>
+              </ul>
+            </div>
+            <div>
+              <div class="list-title">注意</div>
+              <ul>
+                <li>頭城海線隔天接北橫會比礁溪／宜蘭市多一點路</li><li>若想走最順路線，不是最省時間選項</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="verdict">如果這趟 5/1 的重點是「海景放鬆」，這間放第一順位。</div>
+
+          <div class="actions">
+            <a class="btn" href="https://www.booking.com/hotel/tw/pin-yun-xiu-chance-villa-261.zh-tw.html?aid=356980&amp;label=gog235jc-10CAso5wFCIW1pYW4tbWlhbi14aS15dS13ZW4tcXVhbi10YW8tZmFuZ0gwWANo5wGIAQGYATO4AQfIAQzYAQPoAQH4AQGIAgGoAgG4ArSyu88GwAIB0gIkNzljMDE1ODItNzljMS00MTJkLTg4ODQtZDgzMjBiODRhNzVh2AIB4AIB&amp;sid=5bb782687873ec2539ebf59ab666ce92&amp;all_sr_blocks=1098189201_382692228_2_2_0&amp;checkin=2026-05-01&amp;checkout=2026-05-02&amp;dest_id=-2639167&amp;dest_type=city&amp;dist=0&amp;group_adults=2&amp;group_children=0&amp;hapos=9&amp;highlighted_blocks=1098189201_382692228_2_2_0&amp;hpos=9&amp;matching_block_id=1098189201_382692228_2_2_0&amp;no_rooms=1&amp;req_adults=2&amp;req_children=0&amp;room1=A%2CA&amp;sb_price_type=total&amp;sr_order=popularity&amp;sr_pri_blocks=1098189201_382692228_2_2_0__483000&amp;srepoch=1777260889&amp;srpvid=7ee31929143f0063&amp;type=total&amp;ucfs=1#tab-main" target="_blank" rel="noopener">Booking</a><a class="btn" href="https://www.agoda.com/zh-tw/chance-villa-261/hotel/yilan-tw.html?countryId=140&amp;finalPriceView=1&amp;isShowMobileAppPrice=false&amp;cid=1844160&amp;numberOfBedrooms=&amp;familyMode=false&amp;adults=2&amp;children=0&amp;rooms=1&amp;maxRooms=0&amp;checkIn=2026-05-1&amp;isCalendarCallout=false&amp;childAges=&amp;numberOfGuest=0&amp;missingChildAges=false&amp;travellerType=1&amp;showReviewSubmissionEntry=false&amp;currencyCode=TWD&amp;isFreeOccSearch=false&amp;los=1&amp;searchrequestid=fb635e37-443d-430f-a591-4d4db45e40b2" target="_blank" rel="noopener">Agoda</a><a class="btn" href="https://chancevilla261.elbnb.com/" target="_blank" rel="noopener">官方網站</a>
+            <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%93%81%E9%9B%B2%E5%B2%AB%E6%B5%B7%E6%99%AF%E6%B8%A1%E5%81%87%E6%9C%83%E9%A4%A8" target="_blank" rel="noopener">看地圖</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="route" data-id="leschamps">
+        <div class="cover">
+          <div class="photo-label">礁溪溫泉飯店・機能穩</div>
+          <div class="tag">接北橫方便</div>
+        </div>
+        <div class="content">
+          <div class="title-row">
+            <div>
+              <h2>麗翔酒店連鎖・礁溪館 / Hotel Les Champs Jiaosi</h2>
+              <div class="area">礁溪・溫泉區</div>
+            </div>
+            <div class="price">TWD 6,459<small>Booking 連結參數顯示總價</small></div>
+          </div>
+
+          <div class="scores">
+            <div class="score"><span>海景感</span><b>低</b></div>
+            <div class="score"><span>接北橫</span><b>高</b></div>
+            <div class="score"><span>放鬆感</span><b>中高</b></div>
+          </div>
+
+          <div class="cols">
+            <div>
+              <div class="list-title">優點</div>
+              <ul>
+                <li>礁溪位置機能好，隔天接宜蘭／員山／台 7 較順</li><li>適合把 5/1 當北橫前一晚中繼住宿</li><li>溫泉區，晚上吃飯與補給方便</li>
+              </ul>
+            </div>
+            <div>
+              <div class="list-title">注意</div>
+              <ul>
+                <li>不是海景民宿</li><li>旅行感不如頭城海邊住宿</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="verdict">如果朋友重視隔天路線效率與住宿穩定度，這間比海線民宿更實用。</div>
+
+          <div class="actions">
+            <a class="btn" href="https://www.booking.com/hotel/tw/les-champs-yilan.zh-tw.html?aid=356980&amp;label=gog235jc-10CAso5wFCIW1pYW4tbWlhbi14aS15dS13ZW4tcXVhbi10YW8tZmFuZ0gwWANo5wGIAQGYATO4AQfIAQzYAQPoAQH4AQGIAgGoAgG4Asiyu88GwAIB0gIkOTA3NWUwOGEtM2RlZC00ZTBlLThhNzgtMzNhMmI4ODZiMDZl2AIB4AIB&amp;sid=5bb782687873ec2539ebf59ab666ce92&amp;all_sr_blocks=40117201_265760458_0_2_0_632243&amp;checkin=2026-05-01&amp;checkout=2026-05-02&amp;dest_id=-2639167&amp;dest_type=city&amp;dist=0&amp;group_adults=2&amp;group_children=0&amp;hapos=40&amp;highlighted_blocks=40117201_265760458_0_2_0_632243&amp;hpos=15&amp;matching_block_id=40117201_265760458_0_2_0_632243&amp;no_rooms=1&amp;req_adults=2&amp;req_children=0&amp;room1=A%2CA&amp;sb_price_type=total&amp;sr_order=popularity&amp;sr_pri_blocks=40117201_265760458_0_2_0_632243_645900&amp;srepoch=1777261162&amp;srpvid=921f1924c35e0057&amp;type=total&amp;ucfs=1" target="_blank" rel="noopener">Booking</a><a class="btn" href="https://jiaosi.leschamps.com.tw/" target="_blank" rel="noopener">官方網站</a>
+            <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%BA%97%E7%BF%94%E9%85%92%E5%BA%97%E9%80%A3%E9%8E%96%E7%A4%81%E6%BA%AA%E9%A4%A8" target="_blank" rel="noopener">看地圖</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="route" data-id="spring">
+        <div class="cover">
+          <div class="photo-label">礁溪溫泉・安靜型</div>
+          <div class="tag">安靜溫泉備案</div>
+        </div>
+        <div class="content">
+          <div class="title-row">
+            <div>
+              <h2>春水笈溫泉渡假會館 / Spring Fountain Hotel</h2>
+              <div class="area">礁溪・較安靜溫泉住宿</div>
+            </div>
+            <div class="price">需進 Agoda 確認<small>Agoda 動態價格未能穩定擷取</small></div>
+          </div>
+
+          <div class="scores">
+            <div class="score"><span>海景感</span><b>低</b></div>
+            <div class="score"><span>接北橫</span><b>高</b></div>
+            <div class="score"><span>放鬆感</span><b>中高</b></div>
+          </div>
+
+          <div class="cols">
+            <div>
+              <div class="list-title">優點</div>
+              <ul>
+                <li>礁溪區，隔天接北橫比羅東／五結順</li><li>偏溫泉放鬆，不是市區商務飯店感</li><li>適合想安靜休息、隔天早起上路</li>
+              </ul>
+            </div>
+            <div>
+              <div class="list-title">注意</div>
+              <ul>
+                <li>非海景</li><li>Agoda 價格需朋友點進去確認</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="verdict">如果海景房滿了，這間可當「舒服睡一晚＋隔天好出發」的備案。</div>
+
+          <div class="actions">
+            <a class="btn" href="https://www.agoda.com/zh-tw/spring-fountain-hotel/hotel/yilan-tw.html?countryId=140&amp;finalPriceView=1&amp;isShowMobileAppPrice=false&amp;cid=1844160&amp;numberOfBedrooms=&amp;familyMode=false&amp;adults=2&amp;children=0&amp;rooms=1&amp;maxRooms=0&amp;checkIn=2026-05-1&amp;isCalendarCallout=false&amp;childAges=&amp;numberOfGuest=0&amp;missingChildAges=false&amp;travellerType=1&amp;showReviewSubmissionEntry=false&amp;currencyCode=TWD&amp;isFreeOccSearch=false&amp;tspTypes=9&amp;los=1&amp;searchrequestid=fb635e37-443d-430f-a591-4d4db45e40b2" target="_blank" rel="noopener">Agoda</a>
+            <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&amp;query=Spring%20Fountain%20Hotel%20Jiaoxi" target="_blank" rel="noopener">看地圖</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="backup" data-id="sofun">
+        <div class="cover">
+          <div class="photo-label">五結文旅・親子設施</div>
+          <div class="tag">不優先</div>
+        </div>
+        <div class="content">
+          <div class="title-row">
+            <div>
+              <h2>松風文旅 / So Fun Hotel</h2>
+              <div class="area">五結・近羅東方向</div>
+            </div>
+            <div class="price">需進 Agoda 確認<small>Agoda 動態價格未能穩定擷取</small></div>
+          </div>
+
+          <div class="scores">
+            <div class="score"><span>海景感</span><b>低</b></div>
+            <div class="score"><span>接北橫</span><b>低中</b></div>
+            <div class="score"><span>放鬆感</span><b>中</b></div>
+          </div>
+
+          <div class="cols">
+            <div>
+              <div class="list-title">優點</div>
+              <ul>
+                <li>設施型住宿，房間數與飯店服務通常較穩</li><li>適合有親子或設施需求的人</li>
+              </ul>
+            </div>
+            <div>
+              <div class="list-title">注意</div>
+              <ul>
+                <li>五結對隔天走北橫較繞</li><li>不是海景，也不是最放鬆的民宿型選項</li><li>如果只是兩人旅行，可能不是最精準</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="verdict">除非其他都滿，否則我不會把它放在你這趟的前兩名。</div>
+
+          <div class="actions">
+            <a class="btn" href="https://www.agoda.com/zh-tw/so-fun-hotel_2/hotel/yilan-tw.html?countryId=140&amp;finalPriceView=1&amp;isShowMobileAppPrice=false&amp;cid=1844160&amp;numberOfBedrooms=&amp;familyMode=false&amp;adults=2&amp;children=0&amp;rooms=1&amp;maxRooms=0&amp;checkIn=2026-05-1&amp;isCalendarCallout=false&amp;childAges=&amp;numberOfGuest=0&amp;missingChildAges=false&amp;travellerType=1&amp;showReviewSubmissionEntry=false&amp;currencyCode=TWD&amp;isFreeOccSearch=false&amp;los=1&amp;searchrequestid=fb635e37-443d-430f-a591-4d4db45e40b2" target="_blank" rel="noopener">Agoda</a><a class="btn" href="https://www.sofun-hotel.tw/" target="_blank" rel="noopener">官方網站</a>
+            <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%BE%E9%A2%A8%E6%96%87%E6%97%85" target="_blank" rel="noopener">看地圖</a>
+          </div>
+        </div>
+      </article>
+
+    </main>
+
+    <section class="share-box">
+      <h3>可以直接丟給朋友的決策說明</h3>
+      <div class="share-text">我整理了 5/1 宜蘭住宿候選。這次下一站是北橫到司馬庫斯，所以選擇分兩種：
+1. 想要海景放鬆：選品雲岫 Chance Villa 261。
+2. 想要隔天路線最順：選礁溪的麗翔或春水笈。
+3. 松風文旅在五結，對隔天走北橫較繞，所以放備案。</div>
+    </section>
+
+    <div class="note">
+      <strong>使用說明：</strong>價格與房況可能即時變動；Booking 兩筆價格取自使用者提供的已套用 5/1–5/2、2 成人連結。Agoda 的動態價格在此頁以「需進平台確認」標示。照片因 Booking / Agoda / 官方網站多數不允許穩定外嵌，頁面提供各平台按鈕讓朋友直接看原始照片與房型。
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          card.style.display = filter === 'all' || card.dataset.category === filter ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
